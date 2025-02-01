@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://c1kojwx204f0a"]
+
+[ext_resource type="Texture2D" uid="uid://cdbqigj0m0aqq" path="res://ui/settings_icon.png" id="1_xuxo4"]
+[ext_resource type="Script" path="res://ui/ui.gd" id="1_ygp3p"]
+[ext_resource type="Texture2D" uid="uid://b6y8s6hrx6m1t" path="res://ui/settings_icon_hover.png" id="2_ov8g8"]
+[ext_resource type="PackedScene" uid="uid://cthejhp2u8cn1" path="res://ui/options.tscn" id="4_dy0e2"]
+[ext_resource type="Shader" path="res://ui/wavy.gdshader" id="5_6lahy"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ldnbf"]
+font_size = 32
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l7ln7"]
+shader = ExtResource("5_6lahy")
+shader_parameter/height = 3.0
+shader_parameter/curve = 0.1
+shader_parameter/speed = 3.0
+
+[node name="UI" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_ygp3p")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Points" type="Label" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 0
+text = "POINTS"
+label_settings = SubResource("LabelSettings_ldnbf")
+horizontal_alignment = 1
+
+[node name="OptionsButton" type="TextureButton" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("1_xuxo4")
+texture_pressed = ExtResource("1_xuxo4")
+texture_hover = ExtResource("2_ov8g8")
+
+[node name="Options" parent="MarginContainer" instance=ExtResource("4_dy0e2")]
+visible = false
+
+[node name="ToPlay" type="Label" parent="MarginContainer"]
+material = SubResource("ShaderMaterial_l7ln7")
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0.95, 0.933533, 0.703, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+text = "Click or press space to play!"
+horizontal_alignment = 1

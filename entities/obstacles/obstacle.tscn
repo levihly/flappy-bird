@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://jt5v4eejg0v0"]
+
+[ext_resource type="Script" path="res://entities/obstacles/obstacle.gd" id="1_tnnm1"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_4efci"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2adxb"]
+size = Vector2(84.25, 299.5)
+
+[node name="Obstacle" type="Node2D"]
+position = Vector2(759, 197)
+script = ExtResource("1_tnnm1")
+
+[node name="Top" type="RigidBody2D" parent="."]
+position = Vector2(0, -675)
+collision_mask = 2
+gravity_scale = 0.0
+linear_velocity = Vector2(-250, 0)
+linear_damp_mode = 1
+
+[node name="TopSprite" type="Sprite2D" parent="Top"]
+position = Vector2(-62, 463)
+scale = Vector2(84, 300)
+texture = SubResource("CanvasTexture_4efci")
+
+[node name="TopCollisionShape" type="CollisionShape2D" parent="Top"]
+position = Vector2(-62, 463)
+shape = SubResource("RectangleShape2D_2adxb")
+
+[node name="Bottom" type="RigidBody2D" parent="."]
+position = Vector2(0, 650)
+collision_mask = 2
+gravity_scale = 0.0
+lock_rotation = true
+linear_velocity = Vector2(-250, 0)
+linear_damp_mode = 1
+
+[node name="BottomSprite" type="Sprite2D" parent="Bottom"]
+position = Vector2(-62, -446)
+scale = Vector2(84, 300)
+texture = SubResource("CanvasTexture_4efci")
+
+[node name="BottomCollisionShape" type="CollisionShape2D" parent="Bottom"]
+position = Vector2(-62.125, -446)
+shape = SubResource("RectangleShape2D_2adxb")

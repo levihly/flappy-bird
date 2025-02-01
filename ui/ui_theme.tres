@@ -1,0 +1,25 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://dgr682lt2tuy8"]
+
+[ext_resource type="StyleBox" uid="uid://c2wn4ro2hhnk6" path="res://ui/button_style_box.tres" id="1_boobq"]
+[ext_resource type="FontFile" uid="uid://b1hu8a6pittkd" path="res://ui/DigitalDisco.ttf" id="1_cjux8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kcept"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m3l0i"]
+
+[resource]
+default_font = ExtResource("1_cjux8")
+default_font_size = 32
+Button/constants/outline_size = 4
+Button/styles/disabled = null
+Button/styles/focus = ExtResource("1_boobq")
+Button/styles/hover = ExtResource("1_boobq")
+Button/styles/normal = ExtResource("1_boobq")
+Button/styles/pressed = ExtResource("1_boobq")
+CheckBox/constants/outline_size = 4
+CheckBox/font_sizes/font_size = 16
+CheckBox/fonts/font = ExtResource("1_cjux8")
+CheckBox/styles/focus = null
+CheckBox/styles/pressed = SubResource("StyleBoxEmpty_kcept")
+HSeparator/styles/separator = SubResource("StyleBoxEmpty_m3l0i")
+Label/fonts/font = ExtResource("1_cjux8")

@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://cbgpnodi8gqb6"]
+
+[ext_resource type="Script" path="res://game/game.gd" id="1_t7qtx"]
+[ext_resource type="PackedScene" uid="uid://bmmje7ywjjknd" path="res://entities/player/player.tscn" id="1_w5md5"]
+[ext_resource type="Texture2D" uid="uid://bdt85orjbm24b" path="res://game/background.jpg" id="2_nvrdm"]
+[ext_resource type="PackedScene" uid="uid://c1kojwx204f0a" path="res://ui/ui.tscn" id="4_dovqr"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_t7qtx")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 700.0
+offset_bottom = 464.0
+texture = ExtResource("2_nvrdm")
+
+[node name="Player" parent="." instance=ExtResource("1_w5md5")]
+position = Vector2(114, 196)
+
+[node name="UI" parent="." instance=ExtResource("4_dovqr")]
