@@ -9,3 +9,4 @@ func _ready() -> void:
 
 func _on_return_pressed() -> void:
 	hide()
+	get_tree().paused = !get_tree().paused

@@ -2,17 +2,21 @@ extends Node2D
 
 const OBSTACLE = preload("res://entities/obstacles/obstacle.tscn")
 
-@export var obstacle_spawn_interval : float = 1.5
+@export var obstacle_spawn_interval : float = 1.25
 @export var obstacle_despawn_interval : float = 5.0
 
 @onready var player: CharacterBody2D = $Player
+@onready var ui: CanvasLayer = $UI
 
 var player_is_alive : bool = true
+
+signal game_started
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	player.died.connect(_on_player_death)
-	spawn_obstacle()
+	player.started.connect(_on_player_started)
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -24,6 +28,7 @@ func spawn_obstacle() -> void:
 		
 	var obstacle = OBSTACLE.instantiate()
 	add_child(obstacle)
+	obstacle.point_added.connect(_on_player_got_point)
 	
 	
 	
@@ -38,5 +43,11 @@ func _on_player_death() -> void:
 	player_is_alive = false
 	var tween = get_tree().create_tween()
 	tween.tween_property(Engine, "time_scale", 0.0, 0.6)
-	
-	
+
+func _on_player_started() -> void:
+	spawn_obstacle()
+	ui.start_game()
+
+func _on_player_got_point() -> void:
+	ui.add_point()
+	print("point added")

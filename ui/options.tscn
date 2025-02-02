@@ -19,6 +19,7 @@ expand_margin_bottom = 1.0
 anti_aliasing = false
 
 [node name="Options" type="CanvasLayer"]
+process_mode = 4
 script = ExtResource("1_wesnb")
 
 [node name="Panel" type="Panel" parent="."]
@@ -107,5 +108,5 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_i7y2e")
 theme_override_styles/normal = SubResource("StyleBoxFlat_i7y2e")
 text = "Reset High Score"
 
-[connection signal="pressed" from="OptionsContainer/MarginContainer/VBoxContainer/Return" to="OptionsContainer" method="_on_return_pressed"]
 [connection signal="pressed" from="OptionsContainer/MarginContainer/VBoxContainer/Return" to="." method="_on_return_pressed"]
+[connection signal="pressed" from="OptionsContainer/MarginContainer/VBoxContainer/Return" to="OptionsContainer" method="_on_return_pressed"]

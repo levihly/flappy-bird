@@ -1,11 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://jt5v4eejg0v0"]
+[gd_scene load_steps=7 format=3 uid="uid://jt5v4eejg0v0"]
 
 [ext_resource type="Script" path="res://entities/obstacles/obstacle.gd" id="1_tnnm1"]
+[ext_resource type="Texture2D" uid="uid://3yfuyt5a2dg6" path="res://entities/obstacles/fire.png" id="2_hciul"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_4efci"]
+[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_06x60"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2adxb"]
-size = Vector2(84.25, 299.5)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pjy3x"]
+radius = 33.0
+height = 264.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbj23"]
+size = Vector2(20, 88)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rvxqa"]
+radius = 30.0
+height = 300.0
 
 [node name="Obstacle" type="Node2D"]
 position = Vector2(759, 197)
@@ -13,33 +22,49 @@ script = ExtResource("1_tnnm1")
 
 [node name="Top" type="RigidBody2D" parent="."]
 position = Vector2(0, -675)
-collision_mask = 2
+collision_mask = 0
 gravity_scale = 0.0
 linear_velocity = Vector2(-250, 0)
 linear_damp_mode = 1
 
-[node name="TopSprite" type="Sprite2D" parent="Top"]
-position = Vector2(-62, 463)
-scale = Vector2(84, 300)
-texture = SubResource("CanvasTexture_4efci")
+[node name="Sprite" type="Sprite2D" parent="Top"]
+position = Vector2(-64, 482)
+rotation = 3.14159
+scale = Vector2(0.438116, 0.298325)
+texture = ExtResource("2_hciul")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Top"]
+offset_right = 40.0
+offset_bottom = 40.0
+stream = SubResource("VideoStreamTheora_06x60")
 
 [node name="TopCollisionShape" type="CollisionShape2D" parent="Top"]
-position = Vector2(-62, 463)
-shape = SubResource("RectangleShape2D_2adxb")
+position = Vector2(-62, 481)
+shape = SubResource("CapsuleShape2D_pjy3x")
+
+[node name="PointDetection" type="Area2D" parent="Top"]
+position = Vector2(0, 675)
+
+[node name="CollisionShape" type="CollisionShape2D" parent="Top/PointDetection"]
+position = Vector2(-54, -10)
+shape = SubResource("RectangleShape2D_pbj23")
 
 [node name="Bottom" type="RigidBody2D" parent="."]
 position = Vector2(0, 650)
-collision_mask = 2
+collision_mask = 0
 gravity_scale = 0.0
 lock_rotation = true
 linear_velocity = Vector2(-250, 0)
 linear_damp_mode = 1
 
-[node name="BottomSprite" type="Sprite2D" parent="Bottom"]
-position = Vector2(-62, -446)
-scale = Vector2(84, 300)
-texture = SubResource("CanvasTexture_4efci")
+[node name="Sprite" type="Sprite2D" parent="Bottom"]
+position = Vector2(-62, -438)
+scale = Vector2(0.510643, 0.381899)
+texture = ExtResource("2_hciul")
 
 [node name="BottomCollisionShape" type="CollisionShape2D" parent="Bottom"]
-position = Vector2(-62.125, -446)
-shape = SubResource("RectangleShape2D_2adxb")
+position = Vector2(-62, -458)
+rotation = -3.14159
+shape = SubResource("CapsuleShape2D_rvxqa")
+
+[connection signal="body_entered" from="Top/PointDetection" to="." method="_on_point_detection_body_entered"]

@@ -12,10 +12,8 @@ outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l7ln7"]
+render_priority = 0
 shader = ExtResource("5_6lahy")
-shader_parameter/height = 3.0
-shader_parameter/curve = 0.1
-shader_parameter/speed = 3.0
 
 [node name="UI" type="CanvasLayer"]
 process_mode = 3
@@ -36,7 +34,7 @@ theme_override_constants/margin_bottom = 15
 visible = false
 layout_mode = 2
 size_flags_vertical = 0
-text = "POINTS"
+text = "0"
 label_settings = SubResource("LabelSettings_ldnbf")
 horizontal_alignment = 1
 
@@ -52,12 +50,16 @@ texture_hover = ExtResource("2_ov8g8")
 [node name="Options" parent="MarginContainer" instance=ExtResource("4_dy0e2")]
 visible = false
 
-[node name="ToPlay" type="Label" parent="MarginContainer"]
+[node name="ToPlay" type="RichTextLabel" parent="MarginContainer"]
 material = SubResource("ShaderMaterial_l7ln7")
+clip_contents = false
 layout_mode = 2
 size_flags_vertical = 8
-theme_override_colors/font_color = Color(0.95, 0.933533, 0.703, 1)
+theme_override_colors/default_color = Color(0.91, 0.843267, 0.5096, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 7
-text = "Click or press space to play!"
-horizontal_alignment = 1
+bbcode_enabled = true
+text = "[center][wave amp=50.0 freq=5.0 connected=1]Click or press space to play![/wave][/center]"
+fit_content = true
+
+[connection signal="pressed" from="MarginContainer/OptionsButton" to="." method="_on_options_button_pressed"]
