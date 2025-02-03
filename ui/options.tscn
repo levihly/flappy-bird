@@ -19,7 +19,7 @@ expand_margin_bottom = 1.0
 anti_aliasing = false
 
 [node name="Options" type="CanvasLayer"]
-process_mode = 4
+process_mode = 3
 script = ExtResource("1_wesnb")
 
 [node name="Panel" type="Panel" parent="."]
@@ -53,6 +53,7 @@ theme_override_constants/margin_bottom = 15
 
 [node name="VBoxContainer" type="VBoxContainer" parent="OptionsContainer/MarginContainer"]
 layout_mode = 2
+alignment = 1
 
 [node name="EnableMusic" type="CheckBox" parent="OptionsContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -75,7 +76,7 @@ alignment = 2
 [node name="HSeparator2" type="HSeparator" parent="OptionsContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_whu5i")
-theme_override_constants/separation = 35
+theme_override_constants/separation = 45
 
 [node name="Return" type="Button" parent="OptionsContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -95,7 +96,7 @@ text = "Main Menu
 [node name="HSeparator" type="HSeparator" parent="OptionsContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_whu5i")
-theme_override_constants/separation = 39
+theme_override_constants/separation = 59
 
 [node name="ResetHighScore" type="Button" parent="OptionsContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -108,5 +109,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_i7y2e")
 theme_override_styles/normal = SubResource("StyleBoxFlat_i7y2e")
 text = "Reset High Score"
 
+[connection signal="pressed" from="OptionsContainer/MarginContainer/VBoxContainer/EnableMusic" to="." method="_on_enable_music_pressed"]
+[connection signal="toggled" from="OptionsContainer/MarginContainer/VBoxContainer/EnableSound" to="." method="_on_enable_sound_toggled"]
 [connection signal="pressed" from="OptionsContainer/MarginContainer/VBoxContainer/Return" to="." method="_on_return_pressed"]
-[connection signal="pressed" from="OptionsContainer/MarginContainer/VBoxContainer/Return" to="OptionsContainer" method="_on_return_pressed"]
+[connection signal="pressed" from="OptionsContainer/MarginContainer/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]

@@ -6,5 +6,4 @@ uniform float speed : hint_range(0.0, 10.0) = 1.0;       // The speed of the bob
 
 void fragment() {
     float offsetY = amplitude * sin(TIME * speed);
-    COLOR = texture(TEXTURE, UV + vec2(0.0, offsetY) / 500.0);
 }

@@ -475,6 +475,7 @@ shader_parameter/emission_box_extents = Vector3(36.475, 50, 0)
 shader_parameter/sprite = ExtResource("2_dtk4j")
 
 [node name="Player" type="CharacterBody2D"]
+process_mode = 3
 top_level = true
 script = ExtResource("1_1fgk0")
 
@@ -515,6 +516,7 @@ rotation = -3.63117
 shape = SubResource("CapsuleShape2D_jwitl")
 
 [node name="DeathExplosion" type="GPUParticles2D" parent="."]
+process_mode = 3
 emitting = false
 amount = 5251
 process_material = SubResource("ShaderMaterial_apr8y")

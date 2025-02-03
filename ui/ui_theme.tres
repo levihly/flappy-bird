@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://dgr682lt2tuy8"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://dgr682lt2tuy8"]
 
 [ext_resource type="StyleBox" uid="uid://c2wn4ro2hhnk6" path="res://ui/button_style_box.tres" id="1_boobq"]
 [ext_resource type="FontFile" uid="uid://b1hu8a6pittkd" path="res://ui/DigitalDisco.ttf" id="1_cjux8"]
@@ -6,6 +6,8 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kcept"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m3l0i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0jrc7"]
 
 [resource]
 default_font = ExtResource("1_cjux8")
@@ -22,4 +24,6 @@ CheckBox/fonts/font = ExtResource("1_cjux8")
 CheckBox/styles/focus = null
 CheckBox/styles/pressed = SubResource("StyleBoxEmpty_kcept")
 HSeparator/styles/separator = SubResource("StyleBoxEmpty_m3l0i")
+Label/constants/outline_size = 8
 Label/fonts/font = ExtResource("1_cjux8")
+VSeparator/styles/separator = SubResource("StyleBoxEmpty_0jrc7")

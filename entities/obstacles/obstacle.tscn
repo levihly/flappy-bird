@@ -1,9 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://jt5v4eejg0v0"]
+[gd_scene load_steps=6 format=3 uid="uid://jt5v4eejg0v0"]
 
 [ext_resource type="Script" path="res://entities/obstacles/obstacle.gd" id="1_tnnm1"]
 [ext_resource type="Texture2D" uid="uid://3yfuyt5a2dg6" path="res://entities/obstacles/fire.png" id="2_hciul"]
-
-[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_06x60"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pjy3x"]
 radius = 33.0
@@ -33,11 +31,6 @@ rotation = 3.14159
 scale = Vector2(0.438116, 0.298325)
 texture = ExtResource("2_hciul")
 
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Top"]
-offset_right = 40.0
-offset_bottom = 40.0
-stream = SubResource("VideoStreamTheora_06x60")
-
 [node name="TopCollisionShape" type="CollisionShape2D" parent="Top"]
 position = Vector2(-62, 481)
 shape = SubResource("CapsuleShape2D_pjy3x")
@@ -46,7 +39,7 @@ shape = SubResource("CapsuleShape2D_pjy3x")
 position = Vector2(0, 675)
 
 [node name="CollisionShape" type="CollisionShape2D" parent="Top/PointDetection"]
-position = Vector2(-54, -10)
+position = Vector2(-18, -10)
 shape = SubResource("RectangleShape2D_pbj23")
 
 [node name="Bottom" type="RigidBody2D" parent="."]

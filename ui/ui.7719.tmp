@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://c1kojwx204f0a"]
+[gd_scene load_steps=8 format=3 uid="uid://c1kojwx204f0a"]
 
 [ext_resource type="Texture2D" uid="uid://cdbqigj0m0aqq" path="res://ui/settings_icon.png" id="1_xuxo4"]
 [ext_resource type="Script" path="res://ui/ui.gd" id="1_ygp3p"]
 [ext_resource type="Texture2D" uid="uid://b6y8s6hrx6m1t" path="res://ui/settings_icon_hover.png" id="2_ov8g8"]
 [ext_resource type="PackedScene" uid="uid://cthejhp2u8cn1" path="res://ui/options.tscn" id="4_dy0e2"]
-[ext_resource type="PackedScene" uid="uid://btqu3uig32fvb" path="res://ui/death_display.tscn" id="6_xn8ue"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ldnbf"]
 font_size = 32
@@ -64,8 +63,5 @@ bbcode_enabled = true
 text = "[center][wave amp=50.0 freq=5.0 connected=1]Click or press space to play![/wave][/center]"
 fit_content = true
 scroll_active = false
-
-[node name="DeathDisplay" parent="MarginContainer" instance=ExtResource("6_xn8ue")]
-visible = false
 
 [connection signal="pressed" from="MarginContainer/OptionsButton" to="." method="_on_options_button_pressed"]

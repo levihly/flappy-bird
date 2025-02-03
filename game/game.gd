@@ -9,6 +9,7 @@ const OBSTACLE = preload("res://entities/obstacles/obstacle.tscn")
 @onready var ui: CanvasLayer = $UI
 
 var player_is_alive : bool = true
+var time_tween : Tween
 
 signal game_started
 
@@ -16,6 +17,10 @@ signal game_started
 func _ready() -> void:
 	player.died.connect(_on_player_death)
 	player.started.connect(_on_player_started)
+	if time_tween:
+		time_tween.remove_all()
+		
+	Engine.time_scale = 1.0
 	
 
 
@@ -41,8 +46,9 @@ func spawn_obstacle() -> void:
 
 func _on_player_death() -> void:
 	player_is_alive = false
-	var tween = get_tree().create_tween()
-	tween.tween_property(Engine, "time_scale", 0.0, 0.6)
+	time_tween = create_tween()
+	time_tween.tween_property(Engine, "time_scale", 0.0, 0.5)
+	ui.show_game_over()
 
 func _on_player_started() -> void:
 	spawn_obstacle()
@@ -50,4 +56,3 @@ func _on_player_started() -> void:
 
 func _on_player_got_point() -> void:
 	ui.add_point()
-	print("point added")

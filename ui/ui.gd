@@ -3,8 +3,10 @@ extends CanvasLayer
 @onready var options: CanvasLayer = $MarginContainer/Options
 @onready var points_label: Label = $MarginContainer/Points
 @onready var to_play: RichTextLabel = $MarginContainer/ToPlay
+@onready var death_display: CanvasLayer = $MarginContainer/DeathDisplay
 
 var points : int = 0
+var high_score : int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -28,3 +30,7 @@ func _on_options_button_pressed() -> void:
 func add_point() -> void:
 	points += 1
 	points_label.text = str(points)
+
+func show_game_over() -> void:
+	death_display.set_points(points)
+	death_display.show()
