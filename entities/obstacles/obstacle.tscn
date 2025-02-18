@@ -15,7 +15,7 @@ radius = 30.0
 height = 300.0
 
 [node name="Obstacle" type="Node2D"]
-position = Vector2(759, 197)
+position = Vector2(993, 197)
 script = ExtResource("1_tnnm1")
 
 [node name="Top" type="RigidBody2D" parent="."]
@@ -60,4 +60,10 @@ position = Vector2(-62, -458)
 rotation = -3.14159
 shape = SubResource("CapsuleShape2D_rvxqa")
 
+[node name="VisibleOnScreenNotifier" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-50, -39)
+rect = Rect2(0, 0, 37.615, 57.98)
+
 [connection signal="body_entered" from="Top/PointDetection" to="." method="_on_point_detection_body_entered"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier" to="." method="_on_visible_on_screen_notifier_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier" to="." method="_on_visible_on_screen_notifier_screen_exited"]

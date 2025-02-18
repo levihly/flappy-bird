@@ -11,6 +11,7 @@ script = ExtResource("1_t7qtx")
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 700.0
 offset_bottom = 464.0
+scale = Vector2(0.919999, 0.8)
 texture = ExtResource("2_nvrdm")
 
 [node name="Player" parent="." instance=ExtResource("1_w5md5")]
